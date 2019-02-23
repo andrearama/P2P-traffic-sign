@@ -8,12 +8,17 @@ Created on Mon Aug 27 09:32:49 2018
 
 import numpy as np
 import cv2
-from options.test_options import TestOptions
+import sys
+sys.path.insert(0, 'options')
+sys.path.insert(0, 'util')
+from test_options import TestOptions
 from data import CreateDataLoader
 from models import create_model
 import copy
-import util.util as util1
+import util as util1
 from DELETEME import get_coordinates, brightening, increase_brighness, increase_saturation
+
+
 
 ############################################################################################################
 def is_the_same(original, target):
@@ -317,7 +322,7 @@ def create_comparison(name, ls_image, uturn_image, ra_image,noentry_image,
     From the initial image, using the above functions, it outputs confrontation
     """
 
-    name_img = '1/JPEGImages/'+name+'.jpg'
+    name_img = path_for_1 + '1/JPEGImages/'+name+'.jpg'
     img = cv2.imread(name_img)
 
     global original_img
@@ -359,12 +364,12 @@ def create_comparison(name, ls_image, uturn_image, ra_image,noentry_image,
 if __name__ == '__main__':
     
     #Load images:
-    ls_image = cv2.imread("/home/andrea/Documents/NCTU/plain_images/ls05.png", -1)
-    uturn_image = cv2.imread("/home/andrea/Documents/NCTU/plain_images/upleft.png", -1) 
-    ra_image = cv2.imread("/home/andrea/Documents/NCTU/plain_images/rightarrow.png", -1)     
-    noentry_image = cv2.imread("/home/andrea/Documents/NCTU/plain_images/noentry.png", -1) 
-   # noturn_image = cv2.imread("/home/andrea/Documents/NCTU/plain_images/ntr.png", -1) 
-    noturn_image = cv2.imread("/home/andrea/Documents/NCTU/plain_images/ls05.png", -1)     
+    ls_image = cv2.imread("plain_images/ls05.png", -1)
+    uturn_image = cv2.imread("plain_images/upleft.png", -1) 
+    ra_image = cv2.imread("plain_images/rightarrow.png", -1)     
+    noentry_image = cv2.imread("plain_images/noentry.png", -1) 
+   # noturn_image = cv2.imread("plain_images/ntr.png", -1) 
+    noturn_image = cv2.imread("plain_images/ls05.png", -1)     
 
     #GAN settings
     opt = TestOptions().parse()
@@ -377,7 +382,7 @@ if __name__ == '__main__':
     dataset = data_loader.load_data()
     model = create_model(opt)
     model.setup(opt)
-    
+    path_for_1 = opt.original_dataset_directory 
     folder_path = "datasets/traffic_signs/test/"
 
     
@@ -386,7 +391,7 @@ if __name__ == '__main__':
     kt_list = []
     
     second_cycle= False
-    F = open('1/ImageSets/1.txt','r')
+    F = open(path_for_1+'1/ImageSets/1.txt','r')
     lines = F.readlines()
     for name in lines :
         number = int(name[3:])
@@ -402,7 +407,7 @@ if __name__ == '__main__':
 
                     
     second_cycle = True 
-    F = open('1/ImageSets/1.txt','r')
+    F = open(path_for_1+'1/ImageSets/1.txt','r')
     lines = F.readlines()
     for name in lines :
         number = int(name[3:])

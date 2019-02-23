@@ -1,4 +1,4 @@
-from .base_options import BaseOptions
+from base_options import BaseOptions
 
 
 class TrainOptions(BaseOptions):

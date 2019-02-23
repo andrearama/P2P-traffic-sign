@@ -12,6 +12,9 @@ import copy
 from PIL import Image, ImageStat
 import math
 
+path_for_1 = '/media/andrea/MY PASSPORT/dentro_p/'
+
+
 def extract_coordinates(name, coordinates, modd = False) :
     """
     
@@ -19,7 +22,7 @@ def extract_coordinates(name, coordinates, modd = False) :
     if modd:
         name_parse = '/media/andrea/MY PASSPORT/HERE/ALTIS_PC/XML/'+name+'.xml'
     else:
-        name_parse = '1/Annotations/'+name+'.xml'
+        name_parse = path_for_1 + '1/Annotations/'+name+'.xml'
     
     tree = ET.parse(name_parse)
     root = tree.getroot()
@@ -151,7 +154,7 @@ def average_coordinates(coordinates):
 def get_coordinates():
     coordinates = {} 
 
-    F = open('1/ImageSets/1.txt','r')
+    F = open(path_for_1 + '1/ImageSets/1.txt','r')
     lines = F.readlines()
     for name in lines :
         number = int(name[3:])
@@ -448,7 +451,7 @@ def create_video() :
     video = cv2.VideoWriter('video_presentation.avi',cv2.VideoWriter_fourcc(*"XVID"), 8,(width,height))
     
     path = "datasets/risu/"
-    F = open('1/ImageSets/1.txt','r')
+    F = open(path_for_1 + '1/ImageSets/1.txt','r')
     lines = F.readlines()
     for name in lines :
         number = int(name[3:])
