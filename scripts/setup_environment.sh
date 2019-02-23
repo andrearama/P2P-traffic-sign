@@ -1,5 +1,7 @@
-mkdir ../datasets
-cd ../datasets
+mkdir checkpoints
+mkdir checkpoints/sixth_trial
+mkdir datasets
+cd datasets
 mkdir traffic_signs
 cd traffic_signs
 mkdir create
