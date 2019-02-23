@@ -1,7 +1,4 @@
-name: pytorch-CycleGAN-and-pix2pix
-channels:
-- peterjc123
-- defaults
+name: P2P-traffic-sign
 dependencies:
 - python=3.5.5
 - pytorch=0.3.1

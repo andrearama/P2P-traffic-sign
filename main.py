@@ -16,7 +16,7 @@ from data import CreateDataLoader
 from models import create_model
 import copy
 import util as util1
-from DELETEME import get_coordinates, brightening, increase_brighness, increase_saturation
+from auxiliary import get_coordinates, brightening, increase_brighness, increase_saturation
 
 
 
