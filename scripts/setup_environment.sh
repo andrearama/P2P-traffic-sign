@@ -1,5 +1,4 @@
 mkdir checkpoints
-mkdir checkpoints/sixth_trial
 mkdir datasets
 cd datasets
 mkdir traffic_signs
