@@ -26,3 +26,9 @@ Example video (each frame is processed indipendently) https://youtu.be/kExcKMxwg
   cd P2P-traffic-sign
    ./scripts/setup_environment.sh 
   ```
+  - Put the generator architecture in under ./checkpoints/experiment_name/ 
+  
+  - Run the main file:
+  ```bash
+  python create_tested.py --dataroot ./datasets/traffic_signs --name sixth_trial --model pix2pix  --gpu_ids -1 --which_direction BtoA
+  ```
