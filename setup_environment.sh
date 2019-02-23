@@ -1,0 +1,9 @@
+mkdir datasets
+cd datasets
+mkdir traffic_signs
+cd traffic_signs
+mkdir create
+mkdir snap_collection
+mkdir test
+mkdir train
+mkdir val
